@@ -3,6 +3,8 @@
 A Fortran 95 code for Particle Swarm Optimization (PSO). The code is general and can be used with any fitness function. The fitness function is defined in a separate file for convenience. Note that the parameters of the main code must be modified according to the fitness file (the dimensions of the problem, limits of the solution space etc.). The parameters are defined at the start of the PSOclassicG.f95 file.
 
 
+The data of each run is saved in a time-stamped folder. The folder contains a csv data file and a text logfile.
+
 
 ## Compiling 
 Use gfortran to compile the code:
