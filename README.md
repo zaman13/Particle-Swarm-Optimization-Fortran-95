@@ -5,6 +5,8 @@ A Fortran 95 code for Particle Swarm Optimization (PSO). The code is general and
 
 The data of each run is saved in a time-stamped folder. The folder contains a csv data file and a text logfile.
 
+The included fitness.f95 file contains several well-known benchmark functions for testing the code. Note that the bounds of the solution space must be changed in the main file depending on which benchmark function is used.
+
 
 ## Compiling 
 Use gfortran to compile the code:
