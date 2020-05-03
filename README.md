@@ -1,4 +1,12 @@
 ## Particle Swarm Optimization (PSO) code in Fortran 95
+<p float="left">
+<a href = "https://github.com/zaman13/Particle-Swarm-Optimization-Fortran-95/tree/master/Fortran%20codes"> <img src="https://img.shields.io/badge/version-1.0-red" alt="alt text"> </a>
+<a href = "https://github.com/zaman13/Particle-Swarm-Optimization-Fortran-95/blob/master/LICENSE"> <img src="https://img.shields.io/badge/license-MIT-green" alt="alt text"></a>
+<a href = "https://github.com/zaman13/Particle-Swarm-Optimization-Fortran-95/tree/master/Fortran%20codes"> <img src="https://img.shields.io/badge/Language-Fortran-blue" alt="alt text"> </a>
+ 
+</p>
+
+
 
 A Fortran 95 code for Particle Swarm Optimization (PSO). The code is general and can be used with any fitness function. The fitness function is defined in a separate file for convenience. Note that the parameters of the main code must be modified according to the fitness file (the dimensions of the problem, limits of the solution space etc.). The parameters are defined at the start of the PSOclassicG.f95 file.
 
