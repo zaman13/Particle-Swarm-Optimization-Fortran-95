@@ -1,7 +1,12 @@
 !======================Accessories Start============================================
 
+    ! Mohammad Asif Zaman
+    ! version 1.2
+    !   -   2 digit date check added
 
 	! -> Time stamp subroutine
+
+
 	SUBROUTINE timestamp(str)
 		CHARACTER(len=18), INTENT(out) :: str
 		CHARACTER(len=2) :: dd, hr, mn, sc
@@ -22,6 +27,10 @@
 		WRITE(mn,'(i2)') values(6)
 		WRITE(sc,'(i2)') values(7)
 
+        ! The dd check was added in May 3, 2020.
+		if (dd(1:1) == " ") then
+			WRITE(dd(1:1),'(i1)') 0
+		end if
 		if (hr(1:1) == " ") then
 			WRITE(hr(1:1),'(i1)') 0
 		end if

@@ -13,7 +13,7 @@ program PSOclassicG
 
 ! VTR = Value to reach. Required fitness function value for termination.
 ! NIR = Number of iterations required to obtain VTR.
-! pbest = population best solution at each generation/iteration 
+! pbest = population best solution at each generation/iteration
 ! pbest_val = fitness value at pbset
 ! gbest = global best solution
 ! gbest_val = fitness value at gbest
@@ -26,10 +26,21 @@ program PSOclassicG
 !real(kind(1.0d0)), parameter :: eps = epsilon(eps)
 ! <- Mathematical parameters
 
+
+
+! May 2, 2020
+! version 1.2
+!   - timestamp subroutine: date bug fixed
+!   - added Makefile
+!   - The make file works in both linux terminal and windows powershell as well
+!   - The code works fine in both linux and windows
+
+
+
 ! -> File operation parameters
 CHARACTER(len=18) :: str
 character(len=29) :: command_Make
-character(len=35) ::command_File
+character(len=35) :: command_File
 ! <- File operation parameters
 
 
@@ -61,8 +72,8 @@ loopG = 0
 ! Do while (NIR == 0)    ! Turn this loop on if you want to run PSO multiple times till it satisfies VTR
 
 						! until NIR reaches a finite value. If VTR is not achieved, this loop will continue.
-	                    
-	
+
+
 	loopG = loopG + 1
 	print *, loopG
 	print *, NIR
@@ -124,10 +135,10 @@ loopG = 0
 
 	! <- Intializaing particle position and velocities
 
-	
-	
-	
-	
+
+
+
+
 	! Main iteration loop. Creating the generations.
 	do iter = 1, max_iter
 
@@ -194,7 +205,7 @@ loopG = 0
 			end if
 
 		end do  ! Ending loop over population
-	
+
 	end do  ! Ending main iteration loop
 
 
@@ -263,16 +274,20 @@ loopG = 0
 
 ! -> CSV File operation 17th Aug., 2012. (M -> 18th Aug., 2012)
 
-command_Make = 'mkdir ' // 'Data_' // str
-call system(Command_Make)
-command_File =   'Data_' // str // '\' // 'converg.csv' 	! the file name must be 11 characters, including . and extension
+
+command_Make = ('mkdir ' // 'Data_') // str
+
+print *, "commandMake = ", command_Make
+
+call system(command_Make)
+command_File =   'Data_' // str // '/' // 'converg.csv' 	! the file name must be 11 characters, including . and extension
 open  (20, file = command_File)
 	do loop1 = 1, max_iter
 		write (20,*) gbest_val_store(loop1), ",", x11_store(loop1)
 	end do
 close (20)
 
-command_File =   'Data_' // str // '\' // 'final_x.txt' 	! the file name must be 11 characters, including . and extension
+command_File =   'Data_' // str // '/' // 'final_x.txt' 	! the file name must be 11 characters, including . and extension
 open  (30, file = command_File)
 	do loop1 = 1, psize
 
@@ -286,7 +301,7 @@ close (30)
 
 
 ! -> Log file operation
-command_File =   'Data_' // str // '\' // 'logfile.txt'
+command_File =   'Data_' // str // '/' // 'logfile.txt'
 open  (11, file = command_File)
 
 write (11,*) "======================================================"
