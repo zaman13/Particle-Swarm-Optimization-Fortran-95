@@ -1,11 +1,9 @@
 ## Particle Swarm Optimization (PSO) code in Fortran 95
 <p float="left">
-<a href = "https://github.com/zaman13/Particle-Swarm-Optimization-Fortran-95/tree/master/Fortran%20codes"> <img src="https://img.shields.io/badge/version-1.0-red" alt="alt text"> </a>
-<a href = "https://github.com/zaman13/Particle-Swarm-Optimization-Fortran-95/blob/master/LICENSE"> <img src="https://img.shields.io/badge/license-MIT-green" alt="alt text"></a>
 <a href = "https://github.com/zaman13/Particle-Swarm-Optimization-Fortran-95/tree/master/Fortran%20codes"> <img src="https://img.shields.io/badge/Language-Fortran-blue" alt="alt text"> </a>
- 
+<a href = "https://github.com/zaman13/Particle-Swarm-Optimization-Fortran-95/blob/master/LICENSE"> <img src="https://img.shields.io/badge/license-MIT-green" alt="alt text"></a>
+<a href = "https://github.com/zaman13/Particle-Swarm-Optimization-Fortran-95/tree/master/Fortran%20codes"> <img src="https://img.shields.io/badge/version-1.2-red" alt="alt text"> </a>
 </p>
-
 
 
 A Fortran 95 code for Particle Swarm Optimization (PSO). The code is general and can be used with any fitness function. The fitness function is defined in a separate file for convenience. Note that the parameters of the main code must be modified according to the fitness file (the dimensions of the problem, limits of the solution space etc.). The parameters are defined at the start of the PSOclassicG.f95 file.
@@ -17,16 +15,32 @@ The included fitness.f95 file contains several well-known benchmark functions fo
 
 
 ## Compiling 
-Use gfortran to compile the code:
+Use gfortran to compile the code from the terminal/powershell:
 
 ```
 gfortran -c PSOclassicG.f95
-gfortran PSOclassicG.f95 -o PSOclassicG.exe
+gfortran PSOclassicG.f95 -o PSOclassicG_output (add .exe for windows OS)
 ```
 To run the program:
 ```
-./PSOclassicG.exe to run 
+./PSOclassicG_output to run (add .exe for windows OS)
 ```
+
+The code can be also compiled directly using the make file. In terminal type:
+```
+make (it will create the object file and the executive file)
+./PSOclassicG_output to run (add .exe for windows OS)
+```
+
+
+### Version 1.2
+May 2, 2020.  
+   - timestamp subroutine: date bug fixed
+   - added Makefile
+   - The make file works in both linux terminal and windows powershell as well
+   - The code works fine in both linux and windows
+
+
 
 ## Sample Output
 
