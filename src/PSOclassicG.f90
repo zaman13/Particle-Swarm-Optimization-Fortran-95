@@ -40,7 +40,7 @@ module PSOclassicG
 
 contains
 
-   subroutine pso(fitness, xopt, verbose, psize)
+   subroutine pso(fitness, xopt, verbose, psize, xmax, xmin)
       interface
          subroutine fitness(x, cost)
             import pr
@@ -49,12 +49,13 @@ contains
          end subroutine
       end interface
 
-      real(pr), intent(in out) :: xopt(:)
-      integer, intent(in) :: psize
-      logical, intent(in) :: verbose
+      real(pr), intent(in out) :: xopt(:) !! Optimal values obtained
+      real(pr), intent(in) :: xmax(size(xopt)) !! Maxumim dimensions
+      real(pr), intent(in) :: xmin(size(xopt)) !! Minimum dimensions
+      integer, intent(in) :: psize !! Number of particles
+      logical, intent(in) :: verbose !! Print output
 
       integer :: dimen
-      real(pr) :: xmin(size(xopt)), xmax(size(xopt))
       real(pr) :: vmin(size(xopt)), vmax(size(xopt))
       real(pr) :: x(psize, size(xopt))
       real(pr) :: v(psize, size(xopt))
@@ -98,9 +99,6 @@ contains
       ! -> Defining solution space
       ! All dimensions are assigned same limit.
       ! But this can easily be changed by employing a loop
-      xmin = -30
-      xmax = 30
-
       vmin = 0.5*xmin  ! lower limit for velocity
       vmax = 0.5*xmax  ! higher limit for velocity
       ! <- Defining solution space
@@ -208,6 +206,8 @@ contains
       end do  ! Ending main iteration loop
 
       call cpu_time(time_end)
+
+      xopt = gbest
 
       ! call timestamp(str)
 
